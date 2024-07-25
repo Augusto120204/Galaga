@@ -24,7 +24,7 @@ namespace Galaga
             
             juego = new Juego(picCanvas);
 
-            gameTimer.Interval = 32;
+            gameTimer.Interval = 100;
             gameTimer.Tick += new EventHandler(GameLoop);
 
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);

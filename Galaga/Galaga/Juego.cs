@@ -12,9 +12,10 @@ namespace Galaga
     {
         private Jugador jugador;
         private Enemigo[] enemigos;
+        private PointF EnemigoDañado;
 
-        public int tickDisparos = 0, tickDañoRecibido = 0;
-        public bool dañoRecibido = false;
+        public int tickDisparosEnemigos = 0, tickDañoRecibido = 0, tickDisparosJugador = 0, tickDañoRealizado = 0;
+        public bool dañoRecibido = false, dañoRealizado = false;
 
         private int vidasJugador;
         private int[] vidasEnemigos;
@@ -99,7 +100,7 @@ namespace Galaga
             }
             else
             {
-                //Dibujar marco si recibe daño, el marco roja dura 3 ticks
+                //Dibujar el marco rojo si recibe daño, el marco roja dura 3 ticks
                 if (dañoRecibido)
                 {
                     mGraph.DrawRectangle(new Pen(Color.Red, 2), 10, 10, picCanvas.Width - 20, picCanvas.Height - 20);
@@ -119,9 +120,9 @@ namespace Galaga
                 enemigos[0].Mover(picCanvas, 60, picCanvas.Width - 60);
                 enemigos[1].Mover(picCanvas, 60, picCanvas.Width - 60);
 
-                bool dañoRecibido1 = enemigos[0].Disparar(picCanvas, picCanvas.Height - 50, tickDisparos, jugador.Centro);
-                bool dañoRecibido2 = enemigos[1].Disparar(picCanvas, picCanvas.Height - 50, tickDisparos, jugador.Centro);
-                tickDisparos += 1;
+                bool dañoRecibido1 = enemigos[0].Disparar(picCanvas, picCanvas.Height - 50, tickDisparosEnemigos, jugador.Centro);
+                bool dañoRecibido2 = enemigos[1].Disparar(picCanvas, picCanvas.Height - 50, tickDisparosEnemigos, jugador.Centro);
+                tickDisparosEnemigos += 1;
 
                 if (dañoRecibido1 || dañoRecibido2)
                 {
@@ -133,10 +134,26 @@ namespace Galaga
                 jugador.Mover(picCanvas, direccionJugador, 50, picCanvas.Width - 50);
                 PointF[] posicionesEnemigos = { enemigos[0].Centro, enemigos[1].Centro };
 
-                int enemigoGolpeado = jugador.Disparar(picCanvas, 50, posicionesEnemigos);
+                int enemigoGolpeado = jugador.Disparar(picCanvas, 50, tickDisparosJugador, posicionesEnemigos);
+                tickDisparosJugador += 1;
+
                 if (enemigoGolpeado != -1)
                 {
                     vidasEnemigos[enemigoGolpeado] -= 1;
+                    dañoRealizado = true;
+                    EnemigoDañado = enemigos[enemigoGolpeado].Centro;
+                }
+
+                //Si el jugador golpeo a un enemigo dibuja un circulo que dura 3 ticks
+                if (dañoRealizado)
+                {
+                    mGraph.FillEllipse(new SolidBrush(Color.Yellow), EnemigoDañado.X - 10, EnemigoDañado.Y - 10, 20, 20);
+                    tickDañoRealizado += 1;
+                    if(tickDañoRealizado == 3)
+                    {
+                        dañoRealizado = false;
+                        tickDañoRealizado = 0;
+                    }
                 }
 
             }

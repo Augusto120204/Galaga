@@ -12,18 +12,19 @@ namespace Galaga
     internal class Jugador
     {
         private PointF centro;
-        private float velocidad = 15, frecuenciaDisparo = 10, velocidadDisparo = 19;
+        private float velocidad = 15, frecuenciaDisparo = 20, velocidadDisparo = 19;
 
         private Graphics mGraph;
         private Pen mPen;
 
-        private PointF[] disparos = new PointF[2];
-        private bool[] disparado = new bool[2];
+        private PointF[] disparos = new PointF[3];
+        private bool[] disparado = new bool[3];
 
-        public Jugador()
+        public Jugador(Color color)
         {
             centro.X = 0;
             centro.Y = 0;
+            mPen = new Pen(color, 2);
         }
 
         public PointF Centro
@@ -35,7 +36,6 @@ namespace Galaga
         public void PlotJugador(PictureBox picCanvas, PointF puntoInicial = new PointF())
         {
             mGraph = picCanvas.CreateGraphics();
-            mPen = new Pen(Color.LightGreen, 2);
 
             if (centro.X == 0 && centro.Y == 0)
             {

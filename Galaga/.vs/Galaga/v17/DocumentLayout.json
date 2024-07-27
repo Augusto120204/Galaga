@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|c:\\users\\cesar\\onedrive\\desktop\\clases espe\\semestre 5\\14581-computacion grafica\\git\\galaga\\galaga\\galaga\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\galaga\\enemigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\enemigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|c:\\users\\cesar\\onedrive\\desktop\\clases espe\\semestre 5\\14581-computacion grafica\\git\\galaga\\galaga\\galaga\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\galaga\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\galaga\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\galaga\\juego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\juego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\galaga\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\galaga\\enemigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{342A3E4B-D1DF-4097-B4A2-0ED1A4F2C471}|Galaga\\Galaga.csproj|solutionrelative:galaga\\enemigo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,45 +30,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Jugador.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Jugador.cs",
-              "RelativeDocumentMoniker": "Galaga\\Jugador.cs",
-              "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Jugador.cs",
-              "RelativeToolTip": "Galaga\\Jugador.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAiwA0AAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T12:45:31.303Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Form1.cs",
-              "RelativeDocumentMoniker": "Galaga\\Form1.cs",
-              "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Form1.cs",
-              "RelativeToolTip": "Galaga\\Form1.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBoAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T12:44:04.226Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Enemigo.cs",
-              "DocumentMoniker": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Enemigo.cs",
-              "RelativeDocumentMoniker": "Galaga\\Enemigo.cs",
-              "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Enemigo.cs",
-              "RelativeToolTip": "Galaga\\Enemigo.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAgwFsAAABeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T12:19:47.041Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -77,20 +40,63 @@
               "RelativeDocumentMoniker": "Galaga\\Juego.cs",
               "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Juego.cs",
               "RelativeToolTip": "Galaga\\Juego.cs",
-              "ViewState": "AQIAAHgAAAAAAAAAAAAcwJIAAABWAAAA",
+              "ViewState": "AQIAACgAAAAAAAAAAAAQwD8AAABuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T12:19:05.681Z"
+              "WhenOpened": "2024-07-25T12:19:05.681Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Form1.cs",
+              "RelativeDocumentMoniker": "Galaga\\Form1.cs",
+              "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Form1.cs",
+              "RelativeToolTip": "Galaga\\Form1.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T12:44:04.226Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Jugador.cs",
+              "DocumentMoniker": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Jugador.cs",
+              "RelativeDocumentMoniker": "Galaga\\Jugador.cs",
+              "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Jugador.cs",
+              "RelativeToolTip": "Galaga\\Jugador.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T12:45:31.303Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Enemigo.cs",
+              "DocumentMoniker": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Enemigo.cs",
+              "RelativeDocumentMoniker": "Galaga\\Enemigo.cs",
+              "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Enemigo.cs",
+              "RelativeToolTip": "Galaga\\Enemigo.cs",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAuwB0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T12:19:47.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Form1.cs",
               "RelativeDocumentMoniker": "Galaga\\Form1.cs",
               "ToolTip": "C:\\Users\\cesar\\OneDrive\\Desktop\\Clases ESPE\\Semestre 5\\14581-COMPUTACION GRAFICA\\Git\\Galaga\\Galaga\\Galaga\\Form1.cs [Design]",
               "RelativeToolTip": "Galaga\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T12:18:58.558Z"
+              "WhenOpened": "2024-07-25T12:18:58.558Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

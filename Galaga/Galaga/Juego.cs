@@ -12,7 +12,9 @@ namespace Galaga
     {
         private Jugador jugador;
         private Enemigo[] enemigos;
-        private PointF EnemigoDañado;
+        private Color colorJugador;
+        private Color[] coloresEnemigos;
+        private PointF enemigoDañado;
 
         public int tickDisparosEnemigos = 0, tickDañoRecibido = 0, tickDisparosJugador = 0, tickDañoRealizado = 0;
         public bool dañoRecibido = false, dañoRealizado = false;
@@ -22,13 +24,16 @@ namespace Galaga
 
         private Graphics mGraph, mGraphVidasJugador, mGraphVidasEnemigos;
 
-        public Juego(PictureBox picCanvas)
+        public Juego(PictureBox picCanvas, Color pColorJugador)
         {
-            jugador = new Jugador();
+            colorJugador = pColorJugador;
+
+            jugador = new Jugador(colorJugador);
             enemigos = new Enemigo[2];
 
-            enemigos[0] = new Enemigo(Color.LightPink);
-            enemigos[1] = new Enemigo(Color.LightSkyBlue);
+            coloresEnemigos = new Color[2] { Color.LightPink, Color.LightSkyBlue };
+            enemigos[0] = new Enemigo(coloresEnemigos[0], 10, 27, 15);
+            enemigos[1] = new Enemigo(coloresEnemigos[1], 10, 15, 15);
 
             vidasJugador = 3;
             vidasEnemigos = new int[] { 3, 3 };
@@ -38,14 +43,14 @@ namespace Galaga
             jugador.PlotJugador(picCanvas, new PointF(picCanvas.Width / 2, picCanvas.Height - 50));
         }
 
-        private void DibujarCorazon(Graphics graph, PointF centroCorazon)
+        private void DibujarCorazon(Graphics graph, PointF centroCorazon, Color color)
         {
-            graph.FillRectangle(new SolidBrush(Color.Red), centroCorazon.X - 5, centroCorazon.Y - 3, 10, 5);
-            graph.FillRectangle(new SolidBrush(Color.Red), centroCorazon.X - 4, centroCorazon.Y - 5, 3, 2);
-            graph.FillRectangle(new SolidBrush(Color.Red), centroCorazon.X + 1, centroCorazon.Y - 5, 3, 2);
-            graph.FillRectangle(new SolidBrush(Color.Red), centroCorazon.X - 4, centroCorazon.Y + 2, 8, 1);
-            graph.FillRectangle(new SolidBrush(Color.Red), centroCorazon.X - 3, centroCorazon.Y + 3, 6, 1);
-            graph.FillRectangle(new SolidBrush(Color.Red), centroCorazon.X - 2, centroCorazon.Y + 4, 4, 1);
+            graph.FillRectangle(new SolidBrush(color), centroCorazon.X - 5, centroCorazon.Y - 3, 10, 5);
+            graph.FillRectangle(new SolidBrush(color), centroCorazon.X - 4, centroCorazon.Y - 5, 3, 2);
+            graph.FillRectangle(new SolidBrush(color), centroCorazon.X + 1, centroCorazon.Y - 5, 3, 2);
+            graph.FillRectangle(new SolidBrush(color), centroCorazon.X - 4, centroCorazon.Y + 2, 8, 1);
+            graph.FillRectangle(new SolidBrush(color), centroCorazon.X - 3, centroCorazon.Y + 3, 6, 1);
+            graph.FillRectangle(new SolidBrush(color), centroCorazon.X - 2, centroCorazon.Y + 4, 4, 1);
         }
 
         private void DibujarVidasJugador(PictureBox picVidas)
@@ -56,7 +61,7 @@ namespace Galaga
             PointF centroPic = new PointF(picVidas.Width / 2, picVidas.Height / 2);
             for (int i = -1; i < vidasJugador - 1; i++)
             {
-                DibujarCorazon(mGraphVidasJugador, new PointF(centroPic.X + i * 15, centroPic.Y));
+                DibujarCorazon(mGraphVidasJugador, new PointF(centroPic.X + i * 15, centroPic.Y), colorJugador);
             }
         }
 
@@ -70,12 +75,12 @@ namespace Galaga
             {
                 for (int i = -1; i < vidasEnemigos[j] - 1; i++)
                 {
-                    DibujarCorazon(mGraphVidasEnemigos, new PointF(centrosPic[j].X + i * 15, centrosPic[j].Y));
+                    DibujarCorazon(mGraphVidasEnemigos, new PointF(centrosPic[j].X + i * 15, centrosPic[j].Y), coloresEnemigos[j]);
                 }
             }
         }
 
-        public void Jugar(PictureBox picCanvas, PictureBox picVidasJugador, PictureBox picVidasEnemigos, string direccionJugador)
+        public void Jugar(PictureBox picCanvas, PictureBox picVidasJugador, PictureBox picVidasEnemigos, string direccionJugador, Label lblJuego, Button btnReintentar, Button btnSalir)
         {
             picCanvas.Refresh();
             mGraph = picCanvas.CreateGraphics();
@@ -83,7 +88,7 @@ namespace Galaga
             DibujarVidasJugador(picVidasJugador);
             DibujarVidasEnemigos(picVidasEnemigos);
 
-            //Comprobar si los enemigos siguen vivos
+            //Comprobar si los enemigos tienen vidas, de lo contrario matarlos
             for (int i = 0; i < enemigos.Length; i++)
             {
                 if (vidasEnemigos[i] == 0)
@@ -92,18 +97,37 @@ namespace Galaga
                 }
             }
 
-            //Comprobar si el jugador sigue vivo
-            if (vidasJugador == 0)
+            //Comprobar que todos los enemigos esten muertos
+            if (vidasEnemigos[0] == 0 && vidasEnemigos[1] == 0)
+            {
+                mGraph.DrawRectangle(new Pen(Color.Green, 2), 10, 10, picCanvas.Width - 20, picCanvas.Height - 20);
+                lblJuego.Visible = true;
+                lblJuego.Text = "¡Haz Ganado!";
+                lblJuego.ForeColor = Color.Green;
+                btnReintentar.Visible = true;
+                btnReintentar.Enabled = true;
+                btnSalir.Visible = true;
+                btnSalir.Enabled = true;
+            }else if (vidasJugador == 0) //Comprobar si el jugador sigue vivo
             {
                 mGraph.DrawRectangle(new Pen(Color.Red, 2), 10, 10, picCanvas.Width - 20, picCanvas.Height - 20);
-                mGraph.DrawString("GAME OVER", new Font("Arial", 20), new SolidBrush(Color.White), picCanvas.Width / 2 - 90, picCanvas.Height / 2 - 10);
+                lblJuego.Visible = true;
+                lblJuego.Text = "Game Over";
+                lblJuego.ForeColor = Color.Red;
+                btnReintentar.Visible = true;
+                btnReintentar.Enabled = true;
+                btnSalir.Visible = true;
+                btnSalir.Enabled = true;
             }
             else
             {
-                //Dibujar el marco rojo si recibe daño, el marco roja dura 3 ticks
+                //Dibujar el marco rojo y un circulo amarillo si recibe daño , dura 3 ticks
                 if (dañoRecibido)
                 {
                     mGraph.DrawRectangle(new Pen(Color.Red, 2), 10, 10, picCanvas.Width - 20, picCanvas.Height - 20);
+
+                    mGraph.FillEllipse(new SolidBrush(Color.Yellow), jugador.Centro.X - 10, jugador.Centro.Y - 10, 20, 20);
+
                     tickDañoRecibido += 1;
                     if (tickDañoRecibido == 3)
                     {
@@ -141,13 +165,13 @@ namespace Galaga
                 {
                     vidasEnemigos[enemigoGolpeado] -= 1;
                     dañoRealizado = true;
-                    EnemigoDañado = enemigos[enemigoGolpeado].Centro;
+                    enemigoDañado = enemigos[enemigoGolpeado].Centro;
                 }
 
                 //Si el jugador golpeo a un enemigo dibuja un circulo que dura 3 ticks
                 if (dañoRealizado)
                 {
-                    mGraph.FillEllipse(new SolidBrush(Color.Yellow), EnemigoDañado.X - 10, EnemigoDañado.Y - 10, 20, 20);
+                    mGraph.FillEllipse(new SolidBrush(Color.Yellow), enemigoDañado.X - 10, enemigoDañado.Y - 10, 20, 20);
                     tickDañoRealizado += 1;
                     if(tickDañoRealizado == 3)
                     {

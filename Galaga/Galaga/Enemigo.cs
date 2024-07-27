@@ -21,10 +21,13 @@ namespace Galaga
         private PointF[] disparos = new PointF[3];
         private bool[] disparado = new bool[3];
 
-        public Enemigo(Color color)
+        public Enemigo(Color color, float pVelocidad, float pFrecuenciaDisparo, float pVelocidadDisparo)
         {
             centro = new PointF(0,0);
             mPen = new Pen(color, 2);
+            velocidad = pVelocidad;
+            frecuenciaDisparo = pFrecuenciaDisparo;
+            velocidadDisparo = pVelocidadDisparo;
         }
 
         public PointF Centro
@@ -141,6 +144,7 @@ namespace Galaga
         public void Morir()
         {
             vivo = false;
+            centro = new PointF(0, 0);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Galaga
             set { centro = value; }
         }
 
-        public void PlotEnemigo(PictureBox picCanvas, PointF puntoInicial = new PointF())
+        public void InvocarEnemigo(PictureBox picCanvas, PointF puntoInicial = new PointF())
         {
             mGraph = picCanvas.CreateGraphics();
             if (centro.X == 0 && centro.Y == 0)
@@ -99,7 +99,7 @@ namespace Galaga
                         moverDerecha = true;
                     }
                 }
-                PlotEnemigo(picCanvas);
+                InvocarEnemigo(picCanvas);
             }
         }
 
@@ -124,7 +124,7 @@ namespace Galaga
                             && disparos[i].Y + 25 >= jugador.Y - 10 && disparos[i].Y + 25 <= jugador.Y + 10;
 
                         //Reinicia el disparo si llega al limite inferior o si golpeo al jugaodr
-                        if (disparos[i].Y + 25 > limiteInf || colision)
+                        if (disparos[i].Y + 25 > limiteInf)
                         {
                             disparado[i] = false;
                         }

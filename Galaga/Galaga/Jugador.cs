@@ -12,7 +12,8 @@ namespace Galaga
     internal class Jugador
     {
         private PointF centro;
-        private float velocidad = 15, frecuenciaDisparo = 20, velocidadDisparo = 19;
+        private float velocidad = 15, frecuenciaDisparo = 5, velocidadDisparo = 19;
+        private bool invulnerable = false; 
 
         private Graphics mGraph;
         private Pen mPen;
@@ -33,7 +34,13 @@ namespace Galaga
             set { centro = value; }
         }
 
-        public void PlotJugador(PictureBox picCanvas, PointF puntoInicial = new PointF())
+        public bool Invulnerable
+        {
+            get { return invulnerable; }
+            set { invulnerable = value; }
+        }
+
+        public void InvocarJugador(PictureBox picCanvas, PointF puntoInicial = new PointF())
         {
             mGraph = picCanvas.CreateGraphics();
 
@@ -43,7 +50,16 @@ namespace Galaga
                 centro.Y = puntoInicial.Y;
             }
 
-            mGraph.DrawRectangle(mPen, centro.X - 10, centro.Y - 10, 20, 20);
+            //mGraph.DrawRectangle(new Pen(Color.LightPink), centro.X - 10, centro.Y - 10, 20, 20); <- hitbox
+
+            mGraph.DrawPolygon(mPen, new PointF[] { new PointF(centro.X - 10, centro.Y + 10), new PointF(centro.X, centro.Y - 10), new PointF(centro.X + 10, centro.Y + 10) });
+            mGraph.DrawPolygon(mPen, new PointF[] { new PointF(centro.X - 4, centro.Y + 10), new PointF(centro.X, centro.Y), new PointF(centro.X + 4, centro.Y + 10) });
+
+            mGraph.DrawRectangle(mPen, centro.X - 10, centro.Y, 4, 10);
+            mGraph.DrawRectangle(mPen, centro.X + 6, centro.Y, 4, 10);
+            mGraph.DrawRectangle(mPen, centro.X - 10, centro.Y - 7, 4, 17);
+            mGraph.DrawRectangle(mPen, centro.X + 6, centro.Y - 7, 4, 17);
+
         }
 
         public void Mover(PictureBox picCanvas, string direccion, float limiteIzq, float limiteDer)
@@ -53,15 +69,15 @@ namespace Galaga
                 case "izquierda":
                     if(centro.X - velocidad > limiteIzq)
                         centro.X -= velocidad;
-                    PlotJugador(picCanvas);
+                    InvocarJugador(picCanvas);
                     break;
                 case "derecha":
                     if(centro.X + velocidad < limiteDer)
                         centro.X += velocidad;
-                    PlotJugador(picCanvas);
+                    InvocarJugador(picCanvas);
                     break;
                 case " ":
-                    PlotJugador(picCanvas);
+                    InvocarJugador(picCanvas);
                     break;
             }
         }

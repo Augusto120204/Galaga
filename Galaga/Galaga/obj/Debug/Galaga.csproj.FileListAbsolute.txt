@@ -12,9 +12,9 @@ C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\bin\Debug\Galaga.exe
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\bin\Debug\Galaga.pdb
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.csproj.AssemblyReference.cache
-C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.Form1.resources
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.Properties.Resources.resources
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.csproj.GenerateResource.cache
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.csproj.CoreCompileInputs.cache
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.exe
 C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.pdb
+C:\Users\cesar\OneDrive\Desktop\Clases ESPE\Semestre 5\14581-COMPUTACION GRAFICA\Git\Galaga\Galaga\Galaga\obj\Debug\Galaga.Galaga.resources

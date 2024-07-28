@@ -1,6 +1,6 @@
 ﻿namespace Galaga
 {
-    partial class Form1
+    partial class Galaga
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Galaga));
             this.grbGame = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnReintentar = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@
             // 
             // grbGame
             // 
+            this.grbGame.BackColor = System.Drawing.Color.Transparent;
             this.grbGame.Controls.Add(this.btnSalir);
             this.grbGame.Controls.Add(this.btnReintentar);
             this.grbGame.Controls.Add(this.lblJuego);
@@ -110,7 +112,7 @@
             // 
             // picCanvas
             // 
-            this.picCanvas.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.picCanvas.BackColor = System.Drawing.Color.Transparent;
             this.picCanvas.Location = new System.Drawing.Point(7, 22);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(587, 701);
@@ -119,6 +121,7 @@
             // 
             // grbVidasJugador
             // 
+            this.grbVidasJugador.BackColor = System.Drawing.Color.Transparent;
             this.grbVidasJugador.Controls.Add(this.picVidasJugador);
             this.grbVidasJugador.ForeColor = System.Drawing.Color.White;
             this.grbVidasJugador.Location = new System.Drawing.Point(12, 641);
@@ -131,6 +134,7 @@
             // 
             // picVidasJugador
             // 
+            this.picVidasJugador.BackColor = System.Drawing.Color.Black;
             this.picVidasJugador.Location = new System.Drawing.Point(6, 30);
             this.picVidasJugador.Name = "picVidasJugador";
             this.picVidasJugador.Size = new System.Drawing.Size(155, 50);
@@ -139,6 +143,7 @@
             // 
             // grbVidasEnemigos
             // 
+            this.grbVidasEnemigos.BackColor = System.Drawing.Color.Transparent;
             this.grbVidasEnemigos.Controls.Add(this.picVidasEnemigos);
             this.grbVidasEnemigos.ForeColor = System.Drawing.Color.White;
             this.grbVidasEnemigos.Location = new System.Drawing.Point(803, 12);
@@ -151,6 +156,7 @@
             // 
             // picVidasEnemigos
             // 
+            this.picVidasEnemigos.BackColor = System.Drawing.Color.Black;
             this.picVidasEnemigos.Location = new System.Drawing.Point(6, 30);
             this.picVidasEnemigos.Name = "picVidasEnemigos";
             this.picVidasEnemigos.Size = new System.Drawing.Size(155, 100);
@@ -160,6 +166,7 @@
             // lblPausa
             // 
             this.lblPausa.AutoSize = true;
+            this.lblPausa.BackColor = System.Drawing.Color.Transparent;
             this.lblPausa.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPausa.ForeColor = System.Drawing.Color.DarkGray;
             this.lblPausa.Location = new System.Drawing.Point(9, 195);
@@ -171,6 +178,7 @@
             // 
             // grbOpciones
             // 
+            this.grbOpciones.BackColor = System.Drawing.Color.Transparent;
             this.grbOpciones.Controls.Add(this.cbxColor);
             this.grbOpciones.Controls.Add(this.lblColor);
             this.grbOpciones.Controls.Add(this.lblDificultad);
@@ -232,11 +240,13 @@
             this.cbxDificultad.TabIndex = 0;
             this.cbxDificultad.SelectedIndexChanged += new System.EventHandler(this.cbxDificultad_SelectedIndexChanged);
             // 
-            // Form1
+            // Galaga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.grbOpciones);
             this.Controls.Add(this.lblPausa);
@@ -244,9 +254,11 @@
             this.Controls.Add(this.grbVidasJugador);
             this.Controls.Add(this.grbGame);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.White;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ForeColor = System.Drawing.Color.Black;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1000, 800);
+            this.Name = "Galaga";
+            this.Text = "Galaga";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.grbGame.ResumeLayout(false);

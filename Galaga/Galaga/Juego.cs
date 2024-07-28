@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,13 +17,16 @@ namespace Galaga
         private Color colorJugador = Color.White;
         private Color[] coloresEnemigos;
         private PointF enemigoDañado;
-        private bool dificil = false;
+        private bool dificil = false, reproducirVictoria = true;
 
         public int tickDisparosEnemigos = 0, tickDañoRecibido = 0, tickDisparosJugador = 0, tickDañoRealizado = 0;
         public bool dañoRecibido = false, dañoRealizado = false;
 
         private int vidasJugador;
         private int[] vidasEnemigos;
+
+        private SoundPlayer player;
+        private string rutaBase = AppDomain.CurrentDomain.BaseDirectory;
 
         private Graphics mGraph, mGraphVidasJugador, mGraphVidasEnemigos;
 
@@ -77,6 +82,23 @@ namespace Galaga
             graph.FillRectangle(new SolidBrush(color), centroCorazon.X - 2, centroCorazon.Y + 4, 4, 1);
         }
 
+        private void DibujarCorazonEnemigo(Graphics graph, PointF centroCorazon, Color color)
+        {
+            graph.FillPolygon(new SolidBrush(color), new PointF[]
+            {
+                new PointF(centroCorazon.X - 8, centroCorazon.Y - 3),
+                new PointF(centroCorazon.X - 6, centroCorazon.Y - 5),
+                new PointF(centroCorazon.X + 6, centroCorazon.Y - 5),
+                new PointF(centroCorazon.X + 8, centroCorazon.Y - 3),
+                new PointF(centroCorazon.X + 8, centroCorazon.Y + 1),
+                new PointF(centroCorazon.X + 5, centroCorazon.Y + 5),
+                new PointF(centroCorazon.X + 3, centroCorazon.Y + 1),
+                new PointF(centroCorazon.X - 3, centroCorazon.Y + 1),
+                new PointF(centroCorazon.X - 5, centroCorazon.Y + 5),
+                new PointF(centroCorazon.X - 8, centroCorazon.Y + 1)
+            });
+        }
+
         private void DibujarVidasJugador(PictureBox picVidas)
         {
             picVidas.Refresh();
@@ -108,7 +130,7 @@ namespace Galaga
             {
                 for (int i = -1; i < vidasEnemigos[j] - 1; i++)
                 {
-                    DibujarCorazon(mGraphVidasEnemigos, new PointF(centrosPic[j].X + i * 15, centrosPic[j].Y), coloresEnemigos[j]);
+                    DibujarCorazonEnemigo(mGraphVidasEnemigos, new PointF(centrosPic[j].X + i * 25, centrosPic[j].Y), coloresEnemigos[j]);
                 }
             }
         }
@@ -118,6 +140,11 @@ namespace Galaga
         {
             picCanvas.Refresh();
             mGraph = picCanvas.CreateGraphics();
+
+            string rutaDañoRealizado = Path.Combine(rutaBase, "..", "..", "..", "..", "Sources", "damage.wav");
+            string rutaDañoRecibido = Path.Combine(rutaBase, "..", "..", "..", "..", "Sources", "explosion.wav");
+            string rutaMuerte = Path.Combine(rutaBase, "..", "..", "..", "..", "Sources", "death.wav");
+            string rutaVictoria = Path.Combine(rutaBase, "..", "..", "..", "..", "Sources", "win.wav");
 
             DibujarVidasJugador(picVidasJugador);
             DibujarVidasEnemigos(picVidasEnemigos);
@@ -145,25 +172,43 @@ namespace Galaga
             if (todosMuertos)
             {
                 mGraph.DrawRectangle(new Pen(Color.Green, 2), 10, 10, picCanvas.Width - 20, picCanvas.Height - 20);
+
                 lblJuego.Visible = true;
                 lblJuego.Text = "¡Haz Ganado!";
                 lblJuego.ForeColor = Color.Green;
+                lblJuego.BackColor = Color.Black;
+
                 btnReintentar.Visible = true;
                 btnReintentar.Enabled = true;
+
                 btnSalir.Visible = true;
                 btnSalir.Enabled = true;
+
                 cbxDificultad.Enabled = true;
                 cbxColor.Enabled = true;
+
+                //Reproducir sonido de victoria solo una vez
+                if(reproducirVictoria)
+                {
+                    reproducirVictoria = false;
+                    player = new SoundPlayer(rutaVictoria);
+                    player.Play();
+                }
             }else if (vidasJugador == 0) //Comprobar si el jugador sigue vivo
             {
                 mGraph.DrawRectangle(new Pen(Color.Red, 2), 10, 10, picCanvas.Width - 20, picCanvas.Height - 20);
+
                 lblJuego.Visible = true;
                 lblJuego.Text = "Game Over";
                 lblJuego.ForeColor = Color.Red;
+                lblJuego.BackColor = Color.Black;
+
                 btnReintentar.Visible = true;
                 btnReintentar.Enabled = true;
+
                 btnSalir.Visible = true;
                 btnSalir.Enabled = true;
+
                 cbxDificultad.Enabled = true;
                 cbxColor.Enabled = true;
             }
@@ -197,9 +242,20 @@ namespace Galaga
                     tickDisparosEnemigos += 1;
                     if (dañoRecibidoEnemigo && !jugador.Invulnerable)
                     {
+                        //Reproducir sonido de daño recibido
+                        player = new SoundPlayer(rutaDañoRecibido);
+                        player.Play();
+
                         dañoRecibido = true;
                         vidasJugador -= 1;
                         jugador.Invulnerable = true;
+
+                        //Reproducir sonido de muerte solo una vez
+                        if (vidasJugador == 0)
+                        {
+                            player = new SoundPlayer(rutaMuerte);
+                            player.Play();
+                        }
                     }
                 }
 
@@ -220,6 +276,10 @@ namespace Galaga
 
                 if (enemigoGolpeado != -1)
                 {
+                    //Reproducir sonido de daño realizado
+                    player = new SoundPlayer(rutaDañoRealizado);
+                    player.Play();
+
                     vidasEnemigos[enemigoGolpeado] -= 1;
                     dañoRealizado = true;
                     enemigoDañado = enemigos[enemigoGolpeado].Centro;
